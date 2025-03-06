@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const CURRENT_API_URL = "https://api.weatherstack.com/current";
-const API_KEY = import.meta.env.VITE_WEATHERSTACK_API_KEY || "bb0c9b6bf319a5624fe47eb825570225";
+const API_KEY = import.meta.env.VITE_WEATHERSTACK_API_KEY || "SvW4km91GItwujTwHuBCQhhBTPfmoc4X";
 
 export const fetchCurrentWeather = async (city: string) => {
   try {
