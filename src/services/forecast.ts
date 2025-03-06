@@ -1,12 +1,12 @@
 import axios from "axios";
 
 const API_KEY = "SvW4km91GItwujTwHuBCQhhBTPfmoc4X";
-const BASE_URL = "http://dataservice.accuweather.com/forecasts/v1/daily/5day/";
+const BASE_URL = "https://dataservice.accuweather.com/forecasts/v1/daily/5day/";
 
 export const fetchWeatherForecast = async (city: string) => {
   try {
     const locationRes = await axios.get(
-      `http://dataservice.accuweather.com/locations/v1/cities/search`,
+      `https://dataservice.accuweather.com/locations/v1/cities/search`,
       {
         params: { apikey: API_KEY, q: city },
       }
