@@ -19,16 +19,21 @@ const Navbar = () => {
         <NavigationMenu>
           <NavigationMenuList className="flex gap-4">
             <NavigationMenuItem>
-              <NavigationMenuTrigger>Menu</NavigationMenuTrigger>
+              <NavigationMenuTrigger>Pages</NavigationMenuTrigger>
               <NavigationMenuContent className="bg-white shadow-md p-2 rounded-md">
                 <NavigationMenuLink asChild>
-                  <Link to="/dashboard" className="block px-4 py-2 hover:bg-gray-100 rounded-md">
-                    Dashboard
+                  <Link to="/current" className="block px-4 py-2 hover:bg-gray-100 rounded-md">
+                    Current
                   </Link>
                 </NavigationMenuLink>
                 <NavigationMenuLink asChild>
                   <Link to="/forecast" className="block px-4 py-2 hover:bg-gray-100 rounded-md">
-                    About
+                    Forecast
+                  </Link>
+                </NavigationMenuLink>
+                <NavigationMenuLink asChild>
+                  <Link to="/storms" className="block px-4 py-2 hover:bg-gray-100 rounded-md">
+                    Storms
                   </Link>
                 </NavigationMenuLink>
               </NavigationMenuContent>

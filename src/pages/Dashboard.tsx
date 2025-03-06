@@ -1,14 +1,14 @@
-import { useState } from "react";
-import { useQuery } from "@tanstack/react-query";
-import { Avatar, AvatarFallback } from "@/components/ui/avatar";
-import { CloudSunRain } from "lucide-react";
-import { InputWithButton } from "@/components/shared/InputWithButton";
-import { Skeleton } from "@/components/ui/skeleton";
-import { fetchCurrentWeather } from "@/services/dashboard";
 import ErrorDialog from "@/components/shared/ErrorDialog";
-import Navbar from "@/components/shared/Navbar";
-import WeatherCard, { WeatherData } from "@/components/WeatherCard";
 import GenericTable from "@/components/shared/GenericTable";
+import { InputWithButton } from "@/components/shared/InputWithButton";
+import Navbar from "@/components/shared/Navbar";
+import { Avatar, AvatarFallback } from "@/components/ui/avatar";
+import { Skeleton } from "@/components/ui/skeleton";
+import WeatherCard, { WeatherData } from "@/components/WeatherCard";
+import { fetchCurrentWeather } from "@/services/dashboard";
+import { useQuery } from "@tanstack/react-query";
+import { CloudSunRain } from "lucide-react";
+import { useState } from "react";
 
 const Dashboard = () => {
   const [city, setCity] = useState("New York");
@@ -48,8 +48,11 @@ const Dashboard = () => {
 
   return (
     <>
-    <Navbar />  
-      <div className="mt-4 max-w-6xl w-full bg-white shadow-sm rounded-lg p-6 mx-auto flex flex-row items-center gap-4">
+      <div className="pt-6">
+        <Navbar />
+      </div>
+
+      <div className="mt-6 max-w-6xl w-full shadow-sm rounded-lg p-6 mx-auto flex flex-row items-center gap-4">
         <Avatar>
           <AvatarFallback className="bg-gray-100 flex items-center justify-center w-10 h-10">
             <CloudSunRain className="w-6 h-6 text-gray-600" />
@@ -64,7 +67,22 @@ const Dashboard = () => {
         />
       </div>
 
-      {isLoading && <Skeleton className="h-32 w-full" />}
+      {isLoading && (
+      <div className="max-w-6xl mx-auto space-y-4">
+
+        <div className="max-w-3xl mx-auto">
+          <Skeleton className="h-32 w-full rounded-lg" />
+        </div>
+
+        <div className="max-w-6xl mx-auto rounded-lg border shadow-sm">
+          <Skeleton className="h-10 w-full bg-muted rounded-t-lg" />
+          {[...Array(8)].map((_, i) => (
+            <Skeleton key={i} className="h-8 w-full" />
+          ))}
+        </div>
+      </div>
+    )}
+
 
       <div className="mt-6">
         {data && <WeatherCard data={data as WeatherData} />}
@@ -74,7 +92,7 @@ const Dashboard = () => {
         {data && (
           <div>
             <h2 className="text-xl font-semibold mb-4">Weather Metrics</h2>
-            <GenericTable headers={headers} data={weatherData} />
+            <GenericTable headers={headers} data={weatherData} tableCaption="A list of weather metrics"/>
           </div>
         )}
       </div>
