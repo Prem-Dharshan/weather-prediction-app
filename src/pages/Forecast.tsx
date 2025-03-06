@@ -9,7 +9,6 @@ import Navbar from "@/components/shared/Navbar";
 import WeatherCard, { WeatherData } from "@/components/WeatherCard";
 import GenericTable from "@/components/shared/GenericTable";
 import { fetchForecast } from "@/services/forecast";
-import ForeCastTable from "@/components/ForecastTable";
 
 const Forecast = () => {
   const [city, setCity] = useState("New York");
