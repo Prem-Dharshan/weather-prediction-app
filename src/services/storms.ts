@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const API_KEY = "SvW4km91GItwujTwHuBCQhhBTPfmoc4X";
-const BASE_URL = "/api/tropical/v1/gov/storms";
+const BASE_URL = "https://dataservice.accuweather.com/api/tropical/v1/gov/storms";
 
 export interface Storm {
   id: string;
